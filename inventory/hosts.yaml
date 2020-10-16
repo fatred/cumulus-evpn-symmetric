@@ -1,0 +1,28 @@
+---
+all:
+  hosts:
+  children:
+    oobsw:
+      hosts: 
+        sw-mgmt.lab.axadmin.net:
+    spines:
+      hosts:
+        spine1.lab.axadmin.net:
+        spine2.lab.axadmin.net:
+    leaves:
+      hosts:
+        leaf1.lab.axadmin.net:
+        leaf2.lab.axadmin.net:
+    services: 
+      hosts:
+        service1.lab.axadmin.net:
+        service2.lab.axadmin.net:
+    mellanox:
+      hosts: 
+        spine1.lab.axadmin.net:
+        spine2.lab.axadmin.net:
+        leaf1.lab.axadmin.net:
+        leaf2.lab.axadmin.net:
+        service1.lab.axadmin.net:
+        service2.lab.axadmin.net:
+

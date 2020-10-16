@@ -1,0 +1,17 @@
+---
+- hosts: spines
+  become: yes
+  tasks:
+    - import_tasks: handlers/all.yaml
+
+- hosts: leaves
+  become: yes
+  tasks:
+    - import_tasks: handlers/all.yaml
+
+- hosts: services
+  become: yes
+  tasks:
+    - import_tasks: handlers/all.yaml
+
+

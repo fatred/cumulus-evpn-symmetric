@@ -1,0 +1,33 @@
+service integrated-vtysh-config
+!
+log syslog informational
+!
+vrf RED
+  vni 4001
+vrf BLUE
+  vni 4002
+!
+router bgp {{ leaf_as }}
+ bgp router-id {{ loopback_prefix_base }}.{{ leaf_id }}
+ bgp bestpath as-path multipath-relax
+ neighbor underlay peer-group
+ neighbor underlay remote-as external
+ neighbor peerlink.4094 interface remote-as internal
+ neighbor swp15 interface peer-group underlay
+ neighbor swp16 interface peer-group underlay
+ !
+ !
+ address-family ipv4 unicast
+  redistribute connected
+ exit-address-family
+ !
+ address-family l2vpn evpn
+  neighbor underlay activate
+  advertise-all-vni
+ exit-address-family
+!
+
+!
+line vty
+!
+

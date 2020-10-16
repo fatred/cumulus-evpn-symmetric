@@ -1,0 +1,26 @@
+---
+- hosts: spines
+  become: yes
+  handlers: 
+    - import_tasks: handlers/all.yaml
+  tasks:
+    - import_tasks: tasks/enable-routing.yaml
+    - import_tasks: tasks/deploy-spine-templates.yaml
+
+- hosts: leaves
+  become: yes
+  handlers: 
+    - import_tasks: handlers/all.yaml
+  tasks:
+    - import_tasks: tasks/enable-routing.yaml
+    - import_tasks: tasks/deploy-leaf-templates.yaml
+
+- hosts: services
+  become: yes
+  handlers: 
+    - import_tasks: handlers/all.yaml
+  tasks:
+    - import_tasks: tasks/enable-routing.yaml
+    - import_tasks: tasks/deploy-service-templates.yaml
+
+

@@ -1,0 +1,22 @@
+---
+- name: enable zebra
+  lineinfile:
+    path: /etc/frr/daemons
+    regexp: '^zebra='
+    line: 'zebra=yes'
+  notify: 
+    - restart frr
+
+- name: enable bgp
+  lineinfile:
+    path: /etc/frr/daemons
+    regexp: '^bgpd='
+    line: 'bgpd=yes'
+  notify: 
+    - restart frr
+
+- name: ensure FRR is running
+  ansible.builtin.service:
+    name: frr.service
+    state: started
+    enabled: yes

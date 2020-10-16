@@ -1,0 +1,5 @@
+---
+clagd_vxlan_anycast_ip: 100.100.12.1
+loopback_prefix_base: 100.100.0
+svi_prefix_base: "100.90"
+leaf_as: 65200

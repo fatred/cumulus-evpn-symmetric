@@ -1,0 +1,6 @@
+---
+leaf_id: 151
+clag_member_num: 1
+#clagd_vxlan_self_ip: 100.100.34.1
+clagd_vxlan_peer_ip: 100.100.0.152
+

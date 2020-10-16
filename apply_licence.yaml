@@ -1,0 +1,20 @@
+---
+- hosts: mellanox
+  become: yes
+  tasks: 
+    - name: deploy licence file to local disk
+      ansible.builtin.template:
+        src: cl-licence.txt.j2
+        dest: /tmp/cl-licence.txt
+
+    - name: apply licence
+      command: cl-license -i /tmp/cl-licence.txt
+      register: licence_result
+
+    - debug: 
+        var: licence_result
+
+    - name: restart switchd
+      ansible.builtin.service:
+        name: switchd
+        state: restarted

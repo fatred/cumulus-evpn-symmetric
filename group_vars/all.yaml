@@ -1,0 +1,3 @@
+---
+ansible_user: cumulus
+ansible_become_pass: CumulusLinux!
