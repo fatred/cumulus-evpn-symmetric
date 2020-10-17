@@ -1,0 +1,19 @@
+---
+- hosts: spines
+  become: yes
+  tasks:
+    - import_tasks: tasks/setup_proxy.yaml
+    - import_tasks: tasks/upgrade_cumulus.yaml
+
+- hosts: leaves
+  become: yes
+  tasks:
+    - import_tasks: tasks/setup_proxy.yaml
+    - import_tasks: tasks/upgrade_cumulus.yaml
+
+- hosts: services
+  become: yes
+  tasks:
+    - import_tasks: tasks/setup_proxy.yaml
+    - import_tasks: tasks/upgrade_cumulus.yaml
+

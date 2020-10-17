@@ -1,3 +1,5 @@
 ---
 ansible_user: cumulus
 ansible_become_pass: CumulusLinux!
+proxy_host: "10.31.79.254"
+proxy_port: "8080"

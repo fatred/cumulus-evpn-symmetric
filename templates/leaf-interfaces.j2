@@ -28,7 +28,6 @@ auto BLUE
 iface BLUE
   vrf-table auto
 
-
 #### Bridge 
 
 auto bridge
@@ -161,7 +160,6 @@ auto swp16
 iface swp16
     alias spine2
 
-
 auto swp1
 iface swp1
     alias bond member of bond1
@@ -172,7 +170,7 @@ iface bond1
     alias bond1 on swp1
     mtu 9000
     clag-id 1
-    bridge-access 10
+    bridge-vids 10,20
     bond-slaves swp1
     bond-lacp-bypass-allow yes
     mstpctl-bpduguard yes
@@ -188,7 +186,7 @@ iface bond2
     alias bond2 on swp2
     mtu 9000
     clag-id 2
-    bridge-access 10
+    bridge-vids 10,20
     bond-slaves swp2
     bond-lacp-bypass-allow yes
     mstpctl-bpduguard yes
@@ -204,7 +202,7 @@ iface bond3
     alias bond3 on swp3
     mtu 9000
     clag-id 3
-    bridge-access 10
+    bridge-vids 10,20
     bond-slaves swp3
     bond-lacp-bypass-allow yes
     mstpctl-bpduguard yes
@@ -220,7 +218,7 @@ iface bond4
     alias bond4 on swp4
     mtu 9000
     clag-id 4
-    bridge-access 10
+    bridge-vids 10,20
     bond-slaves swp4
     bond-lacp-bypass-allow yes
     mstpctl-bpduguard yes
@@ -236,7 +234,7 @@ iface bond5
     alias bond5 on swp5
     mtu 9000
     clag-id 5
-    bridge-access 10
+    bridge-vids 10,20
     bond-slaves swp5
     bond-lacp-bypass-allow yes
     mstpctl-bpduguard yes
@@ -252,7 +250,7 @@ iface bond6
     alias bond5 on swp6
     mtu 9000
     clag-id 6
-    bridge-access 10
+    bridge-vids 10,20
     bond-slaves swp6
     bond-lacp-bypass-allow yes
     mstpctl-bpduguard yes
